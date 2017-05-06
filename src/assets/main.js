@@ -82,9 +82,9 @@ function getResults(input) {
 
 function showAnswer(result) {
     if (result) {
-        document.getElementById("code").class += " success";
+        document.getElementById("code").className += " success";
     } else {
-        document.getElementById("code").class += " failure";
+        document.getElementById("code").className += " failure";
     }
     document.getElementById("code").innerHTML = answer.value;
 }
