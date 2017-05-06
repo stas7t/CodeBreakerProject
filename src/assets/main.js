@@ -9,7 +9,7 @@ function guess() {
     }
 
     if (validateInput(input.value)) {
-        attempt.value += 1
+        attempt.value = Number(attempt.value) + 1
         return true
     } else {
         return false
@@ -37,4 +37,8 @@ function validateInput(input) {
         setMessage("Guesses must be exactly 4 characters long.")
         return false
     }
+}
+
+function getResults(result) {
+
 }
