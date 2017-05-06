@@ -10,7 +10,6 @@ function guess() {
 
     if (validateInput(input.value)) {
         attempt.value = Number(attempt.value) + 1
-        return true
     } else {
         return false
     }
@@ -65,9 +64,8 @@ function getResults(input) {
       } else {
           row += "<span class='glyphicon glyphicon-remove'></span>"
       }
-      row += "/div"
     }
-    row += "/div"
+    row += "</div></div>"
     document.getElementById('results').innerHTML += row
 
     if (guessed === input.length) {
