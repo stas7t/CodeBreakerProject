@@ -5,22 +5,22 @@ function guess() {
     let input = document.getElementById('user-guess');
     //add functionality to guess function here
     if (answer.value === "" || attempt.value === "") {
-      setHiddenFields()
+      setHiddenFields();
     }
 
     if (validateInput(input.value)) {
-        attempt.value = Number(attempt.value) + 1
+        attempt.value = Number(attempt.value) + 1;
     } else {
-        return false
+        return false;
     }
 
     if (getResults(input.value)) {
-        setMessage("You Win! :)")
+        setMessage("You Win! :)");
     } else {
         if (Number(attempt.value) >= 10) {
-            setMessage("You Lose! :(")
+            setMessage("You Lose! :(");
         } else {
-            setMessage("Incorrect, try again.")
+            setMessage("Incorrect, try again.");
         }
     }
 
@@ -36,50 +36,51 @@ function setHiddenFields() {
 }
 
 function setMessage(message) {
-    document.getElementById('message').innerHTML = message
+    document.getElementById('message').innerHTML = message;
 }
 
 function validateInput(input) {
     if (input.length === 4) {
-        return true
+        return true;
     } else {
-        setMessage("Guesses must be exactly 4 characters long.")
-        return false
+        setMessage("Guesses must be exactly 4 characters long.");
+        return false;
     }
 }
 
 function getResults(input) {
-    let row = "<div class='row'><span class='col-md-6'>" + input + "</span><div class='col-md-6'>"
-    let guessed = 0
+    let row = "<div class='row'><span class='col-md-6'>" + input +
+    "</span><div class='col-md-6'>";
+    let guessed = 0;
 
     for (var i = 0; i < input.length; i++) {
-      char = input[i]
+      char = input[i];
       if (answer.value.includes(char)) {
           if (char === answer.value.charAt(i)) {
-            guessed += 1
-            row += "<span class='glyphicon glyphicon-ok'></span>"
+            guessed += 1;
+            row += "<span class='glyphicon glyphicon-ok'></span>";
           } else {
-            row += "<span class='glyphicon glyphicon-transfer'></span>"
+            row += "<span class='glyphicon glyphicon-transfer'></span>";
           }
       } else {
-          row += "<span class='glyphicon glyphicon-remove'></span>"
+          row += "<span class='glyphicon glyphicon-remove'></span>";
       }
     }
-    row += "</div></div>"
-    document.getElementById('results').innerHTML += row
+    row += "</div></div>";
+    document.getElementById('results').innerHTML += row;
 
     if (guessed === input.length) {
-        return true
+        return true;
     } else {
-        return false
+        return false;
     }
 }
 
 function showAnswer(result) {
     if (result) {
-        document.getElementById("code").class += " success"
+        document.getElementById("code").class += " success";
     } else {
-        document.getElementById("code").class += " failure"
+        document.getElementById("code").class += " failure";
     }
-    document.getElementById("code").innerHTML = answer.value
+    document.getElementById("code").innerHTML = answer.value;
 }
