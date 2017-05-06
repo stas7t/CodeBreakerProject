@@ -89,7 +89,7 @@ function showAnswer(result) {
     document.getElementById("code").innerHTML = answer.value;
 }
 
-function showAnswer() {
+function showReplay() {
     document.getElementById("guessing-div").style.display = "none";
     document.getElementById("replay-div").style.display = "block";
 }
