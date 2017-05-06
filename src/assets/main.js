@@ -76,3 +76,12 @@ function getResults(input) {
         return false
     }
 }
+
+function showAnswer(result) {
+    if (result) {
+        document.getElementById("code").class += " success"
+    } else {
+        document.getElementById("code").class += " failure"
+    }
+    document.getElementById("code").innerHTML = answer.value
+}
