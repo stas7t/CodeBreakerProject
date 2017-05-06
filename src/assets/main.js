@@ -15,6 +15,16 @@ function guess() {
         return false
     }
 
+    if (getResults(input.value)) {
+        setMessage("You Win! :)")
+    } else {
+        if (Number(attempt.value) >= 10) {
+            setMessage("You Lose! :(")
+        } else {
+            setMessage("Incorrect, try again.")
+        }
+    }
+
 }
 
 //implement new functions here
