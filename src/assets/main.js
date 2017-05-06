@@ -39,6 +39,30 @@ function validateInput(input) {
     }
 }
 
-function getResults(result) {
+function getResults(input) {
+    let row = "<div class='row'><span class='col-md-6'>" + input + "</span><div class='col-md-6'>"
+    let guessed = 0
 
+    for (var i = 0; i < input.length; i++) {
+      char = input[i]
+      if (answer.value.includes(char)) {
+          if (char === answer.value.charAt(i)) {
+            guessed += 1
+            row += "<span class='glyphicon glyphicon-ok'></span>"
+          } else {
+            row += "<span class='glyphicon glyphicon-transfer'></span>"
+          }
+      } else {
+          row += "<span class='glyphicon glyphicon-remove'></span>"
+      }
+      row += "/div"
+    }
+    row += "/div"
+    document.getElementById('results').innerHTML += row
+
+    if (guessed === input.length) {
+        return true
+    } else {
+        return false
+    }
 }
